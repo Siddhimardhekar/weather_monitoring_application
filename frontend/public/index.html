@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Weather Monitoring System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #weather-data {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="weather-data"></div>
+
+  <script>
+    async function fetchWeatherData() {
+      try {
+        const response = await fetch('http://localhost:5000/api/weather/current/Delhi'); // Adjust the city as needed
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        displayWeatherData(data);
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+        document.getElementById('weather-data').innerText = 'Failed to load weather data.';
+      }
+    }
+
+    function displayWeatherData(data) {
+      const weatherDataDiv = document.getElementById('weather-data');
+      if (data && data.length > 0) {
+        const { city, temperature, feels_like, main, description } = data[0]; // Assuming the data is an array
+        weatherDataDiv.innerHTML = `
+          <h2>Current Weather in ${city}</h2>
+          <p>Temperature: ${temperature} °C</p>
+          <p>Feels Like: ${feels_like} °C</p>
+          <p>Condition: ${main} - ${description}</p>
+        `;
+      } else {
+        weatherDataDiv.innerText = 'No weather data available.';
+      }
+    }
+
+    // Fetch weather data when the page loads
+    fetchWeatherData();
+  </script>
+</body>
+
+</html>

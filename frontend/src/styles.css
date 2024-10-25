@@ -1,0 +1,82 @@
+body {
+    background-image: url('https://images.app.goo.gl/w88xeiemALBetCBv5');
+    /* Replace with your image URL */
+    background-size: cover;
+    color: white;
+    /* Change text color to white for better contrast */
+    font-family: Arial, sans-serif;
+}
+
+.loading {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+    color: #ffcc00;
+}
+
+.error {
+    color: red;
+    /* Style for error messages */
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.App {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    /* Limit the width for better readability */
+    margin: 0 auto;
+    /* Center the app */
+    background: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background for readability */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    margin: 20px auto;
+    /* Add some margin for spacing */
+    border-collapse: collapse;
+    width: 100%;
+    /* Make the table full width */
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #fff;
+    /* Change border color to white */
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Semi-transparent background for headers */
+    color: #000;
+    /* Dark text for better contrast */
+}
+
+td {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Slightly transparent background for table cells */
+}
+
+td:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Highlight on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    table {
+        font-size: 14px;
+        /* Smaller font size on mobile */
+    }
+
+    th,
+    td {
+        padding: 8px;
+        /* Reduce padding on smaller screens */
+    }
+}
